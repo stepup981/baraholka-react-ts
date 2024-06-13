@@ -85,3 +85,5 @@ class Api {
 }
 
 export default new Api(`https://1889268ad06ce1f2.mokky.dev`);
+
+console.log('test')
