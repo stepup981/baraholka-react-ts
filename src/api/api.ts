@@ -1,8 +1,9 @@
 import {
   IRequestParams,
   ICategories,
-  IProducts
 } from "../types/typeApi";
+
+import { IProducts } from "../types/typeProducts"
 
 class Api {
   domain: string;

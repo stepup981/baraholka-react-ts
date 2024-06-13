@@ -1,6 +1,9 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-const selectProductsState = (state) => state.products;
+import { IStateProducts, IRootState } from "../../types/typeProducts";
+
+
+const selectProductsState = (state: IRootState): IStateProducts => state.products;
 
 const filteredProducts = createSelector(
   selectProductsState,

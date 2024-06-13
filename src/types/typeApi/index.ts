@@ -13,11 +13,3 @@ export interface ICategories {
   image: string;
 }
 
-export interface IProducts {
-  id: number;
-  name: string;
-  price: number;
-  category: string;
-  image: string;
-  onBag: false;
-}

@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getProducts } from "./productsActions";
 
-import { IStateProducts } from "../../types/typeProducts";
-import { IProducts } from "../../types/typeApi";
+import { IStateProducts, IProducts } from "../../types/typeProducts";
+
 const initialState: IStateProducts = {
   products: [],
   searchInput: "",
@@ -19,9 +19,12 @@ const productsSlise = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state) => {})
-      .addCase(getProducts.fulfilled, (state, action: PayloadAction<IProducts[]>) => {
-        state.products = action.payload;
-      })
+      .addCase(
+        getProducts.fulfilled,
+        (state, action: PayloadAction<IProducts[]>) => {
+          state.products = action.payload;
+        }
+      )
       .addCase(getProducts.rejected, (state) => {
         alert("Ошибка");
       });
