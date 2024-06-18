@@ -19,12 +19,9 @@ const productsSlise = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state) => {})
-      .addCase(
-        getProducts.fulfilled,
-        (state, action: PayloadAction<IProducts[]>) => {
-          state.products = action.payload;
-        }
-      )
+      .addCase(getProducts.fulfilled, (state, action: PayloadAction<IProducts[]>) => {
+        state.products = action.payload;
+      })
       .addCase(getProducts.rejected, (state) => {
         alert("Ошибка");
       });

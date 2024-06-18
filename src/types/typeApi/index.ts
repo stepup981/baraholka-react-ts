@@ -6,10 +6,3 @@ export interface IRequestParams {
   includeQuery?: boolean;
   data?: any;
 }
-
-export interface ICategories {
-  id: number;
-  name: string;
-  image: string;
-}
-

@@ -4,14 +4,10 @@ export interface IProducts {
   price: number;
   category: string;
   image: string;
-  onBag: false;
+  onBag: boolean;
 }
 
 export interface IStateProducts {
   products: IProducts[];
-  searchInput: string;
-}
-
-export interface IRootState {
-  products: IStateProducts;
+  searchInput?: string;
 }

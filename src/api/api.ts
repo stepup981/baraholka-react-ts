@@ -1,9 +1,7 @@
-import {
-  IRequestParams,
-  ICategories,
-} from "../types/typeApi";
+import { IRequestParams } from "../types/typeApi";
 
-import { IProducts } from "../types/typeProducts"
+import { IProducts } from "../types/typeProducts";
+import { ICategories } from "../types/typeCategories";
 
 class Api {
   domain: string;
@@ -12,12 +10,7 @@ class Api {
     this.domain = domain;
   }
 
-  async makeRequest({
-    endpoint,
-    method = "GET",
-    includeQuery = true,
-    data = null,
-  }: IRequestParams) {
+  async makeRequest({ endpoint, method = "GET", includeQuery = true, data = null }: IRequestParams) {
     const query = window.location.search;
     const options = {
       method: method,
@@ -27,12 +20,7 @@ class Api {
       body: data,
     };
 
-    const response = await fetch(
-      includeQuery
-        ? `${this.domain}/${endpoint}`
-        : `${this.domain}/${endpoint}${query}`,
-      options
-    );
+    const response = await fetch(includeQuery ? `${this.domain}/${endpoint}` : `${this.domain}/${endpoint}${query}`, options);
     if (response.ok) return response.json();
 
     return alert("Что-то не так");
@@ -42,7 +30,7 @@ class Api {
     return this.makeRequest({ endpoint: "categories" });
   }
 
-  getProducts(): Promise<IProducts[]>{
+  getProducts(): Promise<IProducts[]> {
     const statusQuery = false;
     return this.makeRequest({
       endpoint: "products",
@@ -85,5 +73,3 @@ class Api {
 }
 
 export default new Api(`https://1889268ad06ce1f2.mokky.dev`);
-
-console.log('test')
